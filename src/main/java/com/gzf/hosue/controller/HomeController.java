@@ -13,10 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index(Model model){
-        model.addAttribute("name","哈哈神");
         return "index";
+    }
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
     }
 
     @GetMapping("/get")
