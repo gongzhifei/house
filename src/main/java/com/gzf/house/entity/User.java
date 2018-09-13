@@ -1,4 +1,4 @@
-package com.gzf.hosue.entity;
+package com.gzf.house.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.gzf.hosue;
+package com.gzf.house;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

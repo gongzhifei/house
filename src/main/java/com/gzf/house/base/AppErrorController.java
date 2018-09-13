@@ -1,4 +1,4 @@
-package com.gzf.hosue.base;
+package com.gzf.house.base;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
