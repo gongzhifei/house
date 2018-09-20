@@ -12,25 +12,41 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private MyUserService userService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // 资源访问权限
         http.authorizeRequests()
                 .antMatchers("/static/**").permitAll()
+                .antMatchers("/login/page").permitAll()
+                .antMatchers("/druid/*").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login/page")
-//                .defaultSuccessUrl("/index")
                 .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/index")
                 .and()
-                .csrf()
-                .hashCode();
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/logout/page")
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .and()
+                .exceptionHandling()
+                .accessDeniedPage("/403");
+
+        http.csrf().disable();
+        http.headers().frameOptions().sameOrigin();
+
     }
 
-    @Autowired
-    public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password("123").roles("admin");
-    }
+//    @Autowired
+//    public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("user").password("123").roles("admin");
+//    }
 
 }
