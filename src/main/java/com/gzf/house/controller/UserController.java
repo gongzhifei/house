@@ -12,9 +12,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
-    @GetMapping("/login/page")
+    @GetMapping("/user/login")
     public String login(){
-        return "/login";
+        return "user-login";
+    }
+
+    @GetMapping("/login/page")
+    public String logins(){
+        return "login";
+    }
+
+    @GetMapping("/loginchild")
+    public String loginChild(){
+        return "loginchild";
     }
 
 //    @PostMapping("/login")

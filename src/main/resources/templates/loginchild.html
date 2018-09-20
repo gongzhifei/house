@@ -1,0 +1,194 @@
+﻿
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>用户登录 - 通行证 - 站酷</title>
+
+
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<LINK rel="Bookmark" href="../static/h-ui/images/login/favicon.ico" >
+<LINK rel="Shortcut Icon" href="../static/h-ui/images/login/favicon.ico" />
+<link href="../static/css/jquery.mcustomscrollbar.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/hellorf.css" rel="stylesheet" type="text/css" />
+<style>
+#nc_1_captcha_input {border: solid 1px #999;}
+</style>
+
+
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', 'bd647439edc1d679']);
+        _vds.push(['trackBot', false]);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+<link href="css/passlogin.css" rel="stylesheet" type="text/css" />
+<link type="text/css" href="css/nc.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/nc.js"></script>
+</head>
+<body>
+
+<!--通行证登录框页面 -->
+<input type="hidden" id="a_session" name="a_session" value="" />
+<input type="hidden" id="a_sig" name="a_sig" value="" />
+<input type="hidden" id="a_token" name="a_token" value="" />
+<input type="hidden" id="a_scene" name="a_scene" value="" />
+<input type="hidden" id="a_from" name="a_from" value="3" />
+<input type="hidden" id="regkey" name="regkey" value="dHpUdjdYNW1Kb0gwalV0RDc1SjdIcUpRaHkxanZhU3EwOFpTUXFROHFveUFlUUJueWppOVR3PT0%2F%0Aa2V5SWQ9MQ%3D%3D"/>
+<input type="hidden" id="appLogin" name="appLogin" value="https://2018.hellorf.com/passport" />
+<input type="hidden" id="cback" name="cback" value="https://2018.hellorf.com/" />
+<input type="hidden" id="loginType" name="loginType" value="0" />
+<input type="hidden" id="thirdLogin" name="thirdLogin" value=""/>
+
+<div class="login-box module-l-static" id="login-box">
+    
+        <div class="login-switch">
+            <div class="icon-l static-l"></div>
+            <div class="icon-l quick-l"></div>
+        </div>
+    
+    <div class="l-static">
+        <div class="l-tab-covers">
+            <div class="l-tab-list current">密码登录</div>
+            <div class="l-tab-list">短信登录</div>
+        </div>
+        <div class="static-module-covers">
+            <div class="pass-login-covers">
+                <div class="error-tips hide" id="pass-error-tips">
+                    <span class="ipt-tips-default ipt-default-current js-err-l"></span>
+                </div>
+                <div class="email">
+                    <input type="text" id="username" placeholder="手机号/邮箱" autocomplete='off' class="text-style ipt-default-current">
+                </div>
+                <div class="password">
+                    <input type="password" id="password1" name="" style="display:none;">
+                    <input type="password" id="password" placeholder="密码" maxlength="40" autocomplete='off' class="text-style ipt-default-current">
+                </div>
+                <div class="code hide" id="l-image-code">
+                    <input type="text" id="ipt-code" class="text-style ipt-code" value=""><img src="" id="randomCodeImg"
+                        width="180" height="44" onclick="loadRandomCodeImg()" alt=""><i class="js-image-code-tips code-wrong"></i>
+                </div>
+                <!-- <div class="forget-password">
+                    <a href="javascript:;">忘记密码</a>
+                </div> -->
+                
+                <div class="login">
+                    <!--  btn-disabled  btn-default-main -->
+                    <input type="button" id="loginbtn" class="btn-current-big btn-disabled" value="登录">
+                    <input type="button" id="" class="btn-current-big btn-default-main loadding-btn hide" value="登录中...">
+                </div>
+                <div class="auto-login">
+                		
+                    <label class="auto-login-cd">
+                    <input type="checkbox" name="autolog" id="autolog" checked class="auto-login-cd">下次自动登录</label>
+                    
+                    <div class="login-links">
+                        <a href="//passport.zcool.com.cn/getpassword.do?appId=1007" target="_blank" class="">忘记密码</a>
+                        
+                        &nbsp; | &nbsp;<a href="//passport.zcool.com.cn/regPhone.do?appId=1007&cback=https://2018.hellorf.com/" target="_blank" class="">注册</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="sms-login-covers hide">
+                <div class="error-tips hide" id="sms-error-tips">
+                    <span class="ipt-tips-default ipt-default-current js-err-l"></span>
+                </div>
+                <div class="l-phone-div js-phone-div">
+                    <div class="country-phone-covers">
+                        <span class="phone-area-code-ipt" id="country-area-code">+86</span>
+                        <input type="hidden" name="countryCode" value="+86" id="country-code-ipt" />
+                        <input type="text" id="sms-phone" placeholder="手机号" autocomplete='off' maxlength="20" class="text-style ipt-area-current">
+                    </div>
+                </div>
+                <div id="dom_id" style="margin-bottom:20px;"></div>
+                <div class="l-sms-code js-ipt-h">
+                    <input type="text" autocomplete='off' class="text-style ipt-short-current" id="sms-cd">
+                    <input type="button" class="btn-disabled sms-cd-btn" id="sms-send-cd-btn" value="发送验证码" disabled>
+                    <span class="n-receive-cd js-no-ver-code">没收到验证码？</span>
+                </div>
+                <div class="login">
+                    <!--  btn-disabled  btn-default-main -->
+                    <input type="button" id="sms-login-sub" class="btn-current-big btn-disabled" value="登录" disabled>
+                    <!-- <input type="button" id="" class="btn-current-big btn-default-main loadding-btn hi-de" value="登录中..."> -->
+                </div>
+                <div class="auto-login">
+                    
+                        <label class="auto-login-cd">
+                        <input type="checkbox" name="autolog" id="autolog" checked class="auto-login-cd">下次自动登录</label>
+                    
+                    <div class="login-links">
+                        <a href="//passport.zcool.com.cn/getpassword.do?appId=1007" target="_blank" class="">忘记密码</a>
+                        
+                            &nbsp; | &nbsp;<a href="//passport.zcool.com.cn/regPhone.do?appId=1007" target="_blank" class="">注册</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            <div class="third-login-box">
+                <p class="third-account">第三方账号登录</p>
+             <div class="account-login">
+                 <a data-href="/thirdlogin/wechat.do?appId=1007" class="wechat-login"></a>
+                 <a data-href="/thirdlogin/wb.do?appId=1007" class="weibo-login"></a>
+                 <a data-href="/thirdlogin/qq.do?appId=1007" class="qq-login"></a>
+             </div>
+            </div>
+        
+    </div>
+    <div class="l-quick">
+        <div class="l-title-covers">
+            <div class="l-title-h2">微信二维码登录</div>
+        </div>
+        <div class="er-cd-covers">
+            <div class="" id="login_container">
+                
+            </div>
+        </div>
+        <div class="wx_login_links">
+            <a href="javascript:;" target="_blank" class="pass-login-tab">密码登录</a>  &nbsp;|&nbsp;  <a href="/regPhone.do?appId=1007" target="_blank">注册新帐号</a>
+        </div>
+    </div>
+
+    <!-- <p class="member-login">会员登录</p> -->
+
+    
+</div>
+<script>
+	passportDomain = "passport.zcool.com.cn";
+	var app_host = 'https://www.hellorf.com';
+</script>
+<script type="text/javascript" src="../static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.mcustomscrollbar.js"></script>
+<script type="text/javascript" src="../static/js/passport-v1.0.7.js"></script>
+<script src="../static/js/wxlogin.js"></script>
+<script type="text/javascript" src="../static/js/passlogin.js"></script>
+<script>
+
+//TODO 登录成功以后发送消息到父页面
+//window.parent.postMessage('passport','*'); 
+
+//TODO 父页面监听 
+/*     window.addEventListener('message', function(event){
+        // 通过origin属性判断消息来源地址
+        console.log(event.data);    
+        console.log(event.source);  
+    }, false); */
+</script>
+</body>
+</html>

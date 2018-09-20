@@ -1,0 +1,169 @@
+﻿
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>用户登录 - 通行证 - 站酷</title>
+
+
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<LINK rel="Bookmark" href="../static/h-ui/images/login/favicon.ico" >
+<LINK rel="Shortcut Icon" href="../static/h-ui/images/login/favicon.ico" />
+<link href="../static/css/jquery.mcustomscrollbar.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/common.css" rel="stylesheet" type="text/css" />
+<link href="../static/css/hellorf.css" rel="stylesheet" type="text/css" />
+<style>
+#nc_1_captcha_input {border: solid 1px #999;}
+</style>
+
+
+<script type='text/javascript'>
+      var _vds = _vds || [];
+      window._vds = _vds;
+      (function(){
+        _vds.push(['setAccountId', 'bd647439edc1d679']);
+        _vds.push(['trackBot', false]);
+        (function() {
+          var vds = document.createElement('script');
+          vds.type='text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+        })();
+      })();
+  </script>
+
+</head>
+<body>
+<div class="pass-main-body">
+	<input type="hidden" id="thirdLogin" name="thirdLogin" value=""/>
+	<div class="pass-header-wrap">
+		
+
+
+<div class="login-passcard-nav">
+	<a href="//www.zcool.com.cn/" class="login-zcool-logo"></a>
+	通行证
+</div>
+
+
+
+
+	</div>
+	
+	   
+	    	<div class="login-logo">
+		        <a href="https://www.hellorf.com" class="zcool-logo"><img src="../static/icons/zcool_hellorf_logo.svg"></a>
+		        <br>
+		       	 一站式正版视觉内容提供商
+		    </div>
+	    
+	
+	
+	<!-- 通行证默认登录页面 -->
+	<div class="login-div-box">
+		<iframe allowTransparency="true" id="loginChild" name="loginChild" scrolling="no" src="loginchild.html" marginwidth="0" frameborder="0" width="400" height="500"></iframe>
+		
+	</div>
+	
+	<!-- iframe方式引用通行证登录框页面 -->
+		<div class="login-imgsource">
+            <a href="//www.hellorf.com/photo/show/403770346" target="_blank">图片来自站酷海洛 </a>
+        </div>
+	
+		
+
+<div class="footer login-footer">
+	<p>京ICP备11017824号-4 / 京ICP证130164号 北京市公安局朝阳分局备案编号:110105000501</p>
+	<p>Copyright © 2016-2017 ZCOOL <a href="javascript:;" onclick="doChangeLang('zh')">中文</a> <a href="javascript:;" onclick="doChangeLang('en')">English</a></p>
+</div>
+<script type="text/javascript">
+var jsMsg = new Object();
+jsMsg.msg0='用户名，2~8个汉字/4~16个字符';
+jsMsg.msg1='请输入正确的手机号码';
+jsMsg.msg2='密码长度6-20位';
+jsMsg.msg4='验证码不正确';
+jsMsg.msg5='请输入正确的邮箱地址';
+jsMsg.msg6='请输入验证码';
+jsMsg.msg7='两次密码输入不一致';
+jsMsg.msg8='大写字母、小写字母、数字和标点符号至少包含2种';
+jsMsg.msg9='请勾选';
+jsMsg.msg10='请填写名字';
+jsMsg.msg11='请输入你的手机号';
+jsMsg.msg12='请填写帐号';
+jsMsg.msg13='帐号不存在';
+jsMsg.alertCheckEmail='邮箱已注册';
+jsMsg.alertCheckPass='请完成验证';
+jsMsg.htmlUpdateUname='注：每60天可修改一次用户名';
+jsMsg.htmlPhoneReg='该手机号已注册';
+jsMsg.htmlEmailReg='该邮箱已注册';
+jsMsg.htmlBindAccount='去绑定已有帐号';
+jsMsg.confirmTipVioce='点击发送获取语音验证码';
+jsMsg.randomUserName='系统将自动为你生成随机用户名';
+jsMsg.btnSend='发送';
+jsMsg.btnConfirm='确定';
+jsMsg.btnCancel='取消';
+jsMsg.phoneLogin='直接登录';
+jsMsg.enterpass='请输入密码';
+jsMsg.htmlPhoneReg2='你可以';
+jsMsg.btnJump='确认跳过';
+jsMsg.btnNoJump='不跳过';
+jsMsg.popCopyTitle='跳过此步骤';
+jsMsg.btnRegister='注册中…';
+jsMsg.btnSubmiting='提交中…';
+jsMsg.oldPhoneEmpty='原手机号不能为空';
+
+</script>
+	
+<script type="text/javascript" src="../static/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.mcustomscrollbar.js"></script>
+<script type="text/javascript" src="../static/js/verification.js"></script>
+<script type="text/javascript" src="../static/js/passport-v1.0.7.js"></script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var common_appId = 1007;
+  var app_host = 'https://www.hellorf.com';
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?eb739bb878f02b4f7b5352a0f4fea15c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+  
+  $('#logout').on('click', function() {
+	  $.ajax({
+			url : "/logout.do?appId="+common_appId,
+			type : "get",
+			success : function(data) {
+				var passportHost = window.location.host;
+				 $z.logoutAppOne(passportHost);
+				 $z.logoutAppThree(passportHost);
+				 $z.logoutAppGogoup(passportHost);
+				 $z.logoutProHellorf(passportHost);
+				 $z.logoutHellorfPre(passportHost);
+				 $z.logoutZDo(passportHost);
+				 setTimeout(function(){
+					 window.location.href = app_host;
+				 },1000);
+			}
+		})
+	});
+})();
+function doChangeLang(locale){
+	$.get("/change_lang.do?locale="+locale);
+	$.getJSON("http://www.zcool.com.cn/setting/u_lang?l="+locale+"&callback=?");
+	$.getJSON("http://www.test.zcool.com.cn/setting/u_lang?l="+locale+"&callback=?");
+	window.location.href = window.location.href.replace('locale=_en','').replace('locale=_zh','').replace('#','');
+	//$.getJSON("http://dev.passport.zcool.com.cn/change_lang.do?locale=en&callback=?");
+}
+</script>
+
+	
+</div>
+
+</body>
+</html>

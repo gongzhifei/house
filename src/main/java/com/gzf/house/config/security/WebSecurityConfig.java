@@ -20,13 +20,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 资源访问权限
         http.authorizeRequests()
                 .antMatchers("/static/**").permitAll()
+                .antMatchers("/user/login").permitAll()
                 .antMatchers("/login/page").permitAll()
+                .antMatchers("/loginchild").permitAll()
                 .antMatchers("/druid/*").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login/page")
+                .loginPage("/user/login")
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/index")
                 .and()
@@ -37,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
                 .exceptionHandling()
+                .authenticationEntryPoint(loginUrlEntryPoint())
                 .accessDeniedPage("/403");
 
         http.csrf().disable();
@@ -48,5 +51,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //    public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.inMemoryAuthentication().withUser("user").password("123").roles("admin");
 //    }
+
+    public LoginUrlEntryPoint loginUrlEntryPoint(){
+        return new LoginUrlEntryPoint("/user/login");
+    }
 
 }
