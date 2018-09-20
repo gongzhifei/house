@@ -1,9 +1,3 @@
-
-// 判断是windows系统
-var isWindows = function () {
-    return /windows|win32/i.test(navigator.userAgent);
-}
-
 var zPassport = {
     ConuntryCodePhoneShowEffectEle: null,
     getConuntryCodePhoneShowEffectEle: function (thisPhoneInput) {
@@ -296,6 +290,7 @@ function wxCodeLogin() {
 
 // 获取location登录应用Id
 function getQueryString(name) {
+    name = 123;
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
     var r = location.href.split('?')[1].match(reg);
     if (r != null) {
@@ -310,14 +305,15 @@ function getQueryString(name) {
  * appId 登录应用Id
  * appLogin 可指定解析用户TOKEN地址，默认为各产品配置的login_cb
  * 
- */
-var appId = getQueryString("appId");
-var appLogin = $('#appLogin').attr('value');
-var cback = $('#cback').attr('value');
-var loginType = $('#loginType').attr('value');
-var aa_username;
-var aa_callback;
-var aa_needconfirmpassnum;
+//  */
+// // var appId = getQueryString("appId");
+// var appId = 123;
+// var appLogin = $('#appLogin').attr('value');
+// var cback = $('#cback').attr('value');
+// var loginType = $('#loginType').attr('value');
+// var aa_username;
+// var aa_callback;
+// var aa_needconfirmpassnum;
 /**
  * 添加登录的各个注册事件
  */
@@ -393,7 +389,7 @@ window.passLoginWindowEvent = function (appId, appLogin) {
         $("input[name=autolog]:checked").parent().removeClass().addClass('auto-login-cd')
     })
 }
-passLoginWindowEvent(appId, appLogin);
+// passLoginWindowEvent(appId, appLogin);
 
 // function closeLoginWindow() {
 //     $('.pop-login').hide();
@@ -618,6 +614,7 @@ $('#username').on('keyup input', function () {
     }
 })
 $('#password').on('keyup input', function () {
+    alert("123");
     toEmpty()
 })
 
